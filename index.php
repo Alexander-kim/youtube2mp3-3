@@ -14,7 +14,6 @@
     	<input style="font-size:30px;margin-bottom:30px" type="submit" value="an Server schicken" />
 	</form>
 <?
-
 	if (isset($_GET['youtubelink']))
 	{
 		if(strpos($_GET['youtubelink'],"youtube")!==false)

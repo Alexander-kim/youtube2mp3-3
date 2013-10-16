@@ -11,7 +11,7 @@
 	<form action="index.php" method="get">
     	<span style="font-size:53px;font-family: 'Kite One', sans-serif;">Youtube2MP3</span><br>
 	<input style="width: 100%; margin-top:50px;margin-bottom:50px;padding:10px" placeholder="http://youtube.com/watch?v=..." type="text" name="youtubelink" /><br>
-    	<input style="font-size:30px" type="submit" value="an Server schicken" />
+    	<input style="font-size:30px;margin-bottom:30px" type="submit" value="an Server schicken" />
 	</form>
 <?
 
@@ -20,13 +20,13 @@
 		if(strpos($_GET['youtubelink'],"youtube")!==false)
 		{
 			 $youtubelink = $_GET['youtubelink'];
-       			 echo "Datei wird heruntergeladen...";
-       			 $command = "sh /var/www/youtube/youtube2mp3.sh ".$youtubelink;
+       			 echo "<span style=\"font-size:20px;font-family: 'Kite One', sans-serif;\">Download erfolgreich</span>";
+       			 $command = "nohup youtube-dl ".$youtubelink." -x --audio-format mp3 --audio-quality 0 & ";
        			 shell_exec($command);
 		}
 		else
 		{
-			echo "fehlerhafter Link!";
+			echo "<span style=\"font-size:20px;font-family: 'Kite One', sans-serif;\">Link fehlerhaft</span>";
 		}
 	}
 ?>
